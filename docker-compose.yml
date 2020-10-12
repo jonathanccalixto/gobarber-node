@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=gobarber
+      - POSTGRES_PASSWORD=gobarber
+    volumes:
+      - .docker/sqls/create_database.sql:/docker-entrypoint-initdb.d/000-data.sql
+      - .docker/.pg/12-2/data:/var/lib/postgresql/data
