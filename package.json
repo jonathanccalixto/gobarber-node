@@ -30,6 +30,8 @@
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/index.ts",
-    "lint": "eslint --fix 'src/**/*'"
+    "start": "ts-node src/index.ts",
+    "lint": "eslint --fix 'src/**/*'",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   }
 }

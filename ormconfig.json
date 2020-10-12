@@ -4,5 +4,11 @@
   "port": 5432,
   "username": "gobarber",
   "password": "gobarber",
-  "database": "gobarber_development"
+  "database": "gobarber_development",
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
