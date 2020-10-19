@@ -10,11 +10,7 @@ usersRouter.post('/', async (request, response) => {
 
     const userCreator = new UserCreator();
 
-    const { encrypted_password, ...user } = await userCreator.create({
-      name,
-      email,
-      password,
-    });
+    const user = await userCreator.create({ name, email, password });
 
     return response.json(user);
   } catch (error) {

@@ -3,14 +3,16 @@ import { hash } from 'bcryptjs';
 
 import User from '../models/User';
 
-interface Request {
+interface IRequest {
   name: string;
   email: string;
   password: string;
 }
 
+type IResponse = Omit<User, 'encrypted_password'>;
+
 class UserCreator {
-  public async create({ name, email, password }: Request): Promise<User> {
+  public async create({ name, email, password }: IRequest): Promise<IResponse> {
     const userRepository = getRepository(User);
 
     const checkUserExists = await userRepository.findOne({ where: { email } });
@@ -28,7 +30,9 @@ class UserCreator {
 
     await userRepository.save(user);
 
-    return user;
+    const { encrypted_password, ...response } = user;
+
+    return response;
   }
 }
 
