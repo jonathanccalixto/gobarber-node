@@ -17,9 +17,10 @@
     "plugins": ["@typescript-eslint", "prettier"],
     "rules": {
         "class-methods-use-this": "off",
+        "camelcase": "off",
         "import/extensions": ["error", "ignorePackages", { "ts": "never" }],
-        "@typescript-eslint/camelcase": "off",
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "@typescript-eslint/camelcase": "off"
     },
     "settings": {
         "import/resolver": {
