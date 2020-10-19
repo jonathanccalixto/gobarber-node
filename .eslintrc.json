@@ -20,7 +20,16 @@
         "camelcase": "off",
         "import/extensions": ["error", "ignorePackages", { "ts": "never" }],
         "prettier/prettier": "error",
-        "@typescript-eslint/camelcase": "off"
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "args": "after-used",
+                "argsIgnorePattern": "^_",
+                "caughtErrors": "none",
+                "ignoreRestSiblings": true
+            }
+        ]
     },
     "settings": {
         "import/resolver": {
