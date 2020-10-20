@@ -1,5 +1,6 @@
 import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 
 import User from '../models/User';
 
@@ -10,25 +11,32 @@ interface IRequest {
 
 interface IResponse {
   user: Omit<User, 'encrypted_password'>;
+  token: string;
 }
 
 class UserAuthenticator {
   public async authenticate({ email, password }: IRequest): Promise<IResponse> {
     const userRepository = getRepository(User);
 
-    const user = await userRepository.findOne({ where: { email } });
+    const userFound = await userRepository.findOne({ where: { email } });
 
-    if (!user) throw new Error('Incorrect email/password combination');
+    if (!userFound) throw new Error('Incorrect email/password combination');
 
-    const passwordMatched = await compare(password, user.encrypted_password);
+    const passwordMatched = await compare(
+      password,
+      userFound.encrypted_password,
+    );
 
     if (!passwordMatched) {
       throw new Error('Incorrect email/password combination');
     }
 
-    const { encrypted_password, ...treatedUser } = user;
+    const secret = 'd97c02333ab6a862aa3294780bd28e52';
+    const token = sign({}, secret, { subject: userFound.id, expiresIn: '1d' });
 
-    return { user: treatedUser };
+    const { encrypted_password, ...user } = userFound;
+
+    return { user, token };
   }
 }
 
