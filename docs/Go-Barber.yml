@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2021-01-24T01:36:56.278Z
+__export_date: 2021-02-05T06:53:48.522Z
 __export_source: insomnia.desktop.app:v2020.5.2
 resources:
   - _id: req_32149988b09742fc8cc176774b10a379
     parentId: fld_42d183e0ac394fde839642a9c112ffa6
-    modified: 1603124896542
+    modified: 1611452317285
     created: 1603115331911
     url: "{{ baseURL }}/appointments"
     name: Create
@@ -116,6 +116,41 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1602594348996.5
     _type: request_group
+  - _id: req_3c7ee0076e1c43e9aefbea08100340c1
+    parentId: fld_127fb7d29ef2498da29a7ae05cdfde3e
+    modified: 1612507428013
+    created: 1612504975996
+    url: "{{ baseURL }}/users/avatar"
+    name: Update Avatar
+    description: ""
+    method: PATCH
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: avatar
+          value: ""
+          description: ""
+          id: pair_32fe0e41305149bf9ae0711f420286ef
+          type: file
+          multiline: null
+          fileName: /Users/jonathan/Pictures/ghostbusters.jpg
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_d143513a236f46fa8d7ab631591f436f
+    authentication:
+      type: bearer
+      token: "{{token}}"
+    metaSortKey: -1603115331861
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_e4ef18d32edb4fd196ab47477fa67eb2
     parentId: fld_b17d801641234255bd536d71f54f2463
     modified: 1603129754542
@@ -184,12 +219,12 @@ resources:
     _type: api_spec
   - _id: env_289b8935c9934a21a9e739e736013a2e
     parentId: env_07927840d47133fd54a62e7824a9a4ee290af318
-    modified: 1603674969412
+    modified: 1612505173269
     created: 1603115227985
     name: development
     data:
       baseURL: http://localhost:3333
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDM2NzQ5NDcsImV4cCI6MTYwMzc2MTM0Nywic3ViIjoiNjI2ZTViNzMtZWJkOS00YTZkLThmOGEtOTIwY2NlZGIwNDUzIn0._o7yBf63x8-TIBKwWWTIEmce5lGTf48uK-Rn6VAduio
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTI1MDUxNTcsImV4cCI6MTYxMjU5MTU1Nywic3ViIjoiNjI2ZTViNzMtZWJkOS00YTZkLThmOGEtOTIwY2NlZGIwNDUzIn0.yg8Hg-0VvdYkPz8JVHwlSOqeYWKWpjI18oXZNjnNKtk
     dataPropertyOrder:
       "&":
         - baseURL
